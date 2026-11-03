@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "sourceVideo": "public/videos/hero-construction.mp4",
+  "frameCount": 201,
+  "width": 1600,
+  "height": 900,
+  "aspectRatio": "16:9",
+  "fps": 20,
+  "sourceDuration": 10.033,
+  "filenamePattern": "frame_%04d.webp",
+  "firstFrame": "frame_0001.webp",
+  "lastFrame": "frame_0201.webp",
+  "format": "webp",
+  "quality": 76,
+  "extractedAt": "2026-10-25T16:52:03.144Z"
+}
