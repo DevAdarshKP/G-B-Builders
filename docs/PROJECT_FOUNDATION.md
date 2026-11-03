@@ -19,7 +19,6 @@
 
 ```text
 G&B/
-├── .npmrc                         # Configures script-shell to support Windows paths with ampersands (&)
 ├── eslint.config.mjs              # Flat ESLint configuration with Next.js core web vitals and TypeScript rules
 ├── next.config.ts                 # Next.js configuration with Turbopack CSS loaders
 ├── package.json                   # Dependency definitions and scripts
@@ -171,6 +170,6 @@ The scroll-driven hero sequence is implemented in `src/components/sections/Cinem
 
 1. **Windows Workspace Path with Ampersand (`G&B`)**:
    - On Windows, standard `cmd.exe` interprets `&` as a command separator. This causes npm's default `cmd-shim` scripts in `.bin` to break unless executed through a POSIX-compliant shell.
-   - **Resolution Applied**: A project-level `.npmrc` file was added with `script-shell = "C:\\Program Files\\Git\\bin\\bash.exe"`. This ensures that all npm scripts (`npm run dev`, `npm run build`, `npm run lint`, `npm run typecheck`, `npm run frames:hero`) execute cleanly across all developer environments on this machine.
+   - **Resolution Applied**: Configure user-level npmrc (`npm config set script-shell "C:\\Program Files\\Git\\bin\\bash.exe" --location=user`). Windows-specific shell paths must never be committed to project `.npmrc`, ensuring Linux-based CI/CD and Vercel environments use standard platform shells without path collisions.
 2. **FFmpeg on Windows**:
    - Installed via WinGet (`Gyan.FFmpeg`). The extraction script `scripts/extract-hero-frames.mjs` locates the binary automatically via WinGet package directory or system PATH.
